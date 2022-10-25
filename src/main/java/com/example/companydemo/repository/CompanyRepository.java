@@ -36,9 +36,9 @@ public interface CompanyRepository extends MongoRepository<CompanyEntity, UUID> 
                     "       { $or: [ {$expr: {$eq: [':#{#representative}', 'null']} }, {'representative': {$eq: ':#{#representative}'} } ] }," +
                     "       { $or: [ {$expr: {$eq: [':#{#active}', 'null']} }, {'active': :#{#active} } ] }," +
                     "       { $or: [ {$expr: {$eq: [':#{#deleted}', 'null']} }, {'deleted': :#{#deleted} } ] }," +
-                    "       { $or: [ {$expr: {$eq: [':#{#businessType}', 'null']} }, { 'businessType': { $in: :#{#businessType} } } ] }" +
-                    "       { $or: [ {$expr: {$eq: [':#{#introduce}', 'null']} }, { 'introduce': { $in: :#{#introduce} } } ] }," +
-                    "       { $or: [ {$expr: {$eq: [':#{#keyword}', 'null']} }, { 'keyword': { $in: :#{#keyword} } } ] }" +
+                    "       { $or: [ {$expr: {$eq: [':#{#businessType}', 'null']} }, {'businessType': { $in: [:#{#businessType}] } } ] }," +
+                    "       { $or: [ {$expr: {$eq: [':#{#introduce}', 'null']} }, { 'introduce': { $in: [:#{#introduce}] } } ] }," +
+                    "       { $or: [ {$expr: {$eq: [':#{#keyword}', 'null']} }, { 'keyword': { $in: [:#{#keyword}] } } ] }" +
                     "       ]" +
                     "}"
     )
@@ -48,8 +48,8 @@ public interface CompanyRepository extends MongoRepository<CompanyEntity, UUID> 
             String facebook, String email, String phoneNumber, String website,
             String legalType, LocalDateTime establishDate, String representative,
             String logo, Boolean active, Boolean deleted,
-            String workingTime, String[] businessType, String[] introduce,
-            String[] keyword
+            String workingTime, String businessType, String introduce,
+            String keyword
     );
 
     @Override

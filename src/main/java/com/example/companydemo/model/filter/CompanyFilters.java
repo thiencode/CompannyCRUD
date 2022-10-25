@@ -29,12 +29,12 @@ public class CompanyFilters implements IFilter {
     private String legalType;
     private LocalDateTime establishDate;
     private String representative;
-    private String[] businessType;
+    private String businessType;
     private String logo;
     private Boolean active;
     private Boolean deleted;
     private String workingTime;
-    private String[] introduce;
-    private String[] keyword;
+    private String introduce;
+    private String keyword;
 }
 
